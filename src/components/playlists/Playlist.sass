@@ -8,7 +8,18 @@
     margin: auto
     margin-top: 2vh
     overflow-y: scroll
-    @include sass.scroll($scroll-width: 0.1em)       
+
+    &::-webkit-scrollbar 
+        width: 0.1em        
+                
+    &::-webkit-scrollbar-track 
+        background: #4e4e4e     
+                
+            
+    &::-webkit-scrollbar-thumb 
+        background-color: sass.$verde  
+        border-radius: 10px    
+        border: none      
         
 
     .fade
