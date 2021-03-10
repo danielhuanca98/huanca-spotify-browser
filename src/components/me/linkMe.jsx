@@ -6,7 +6,6 @@ export default function LinkMe() {
     
     useEffect(() => {
         const blinkEl = document.getElementById('blink')
-        console.log(blinkEl)
         const interval = setInterval(() => {
             if (blinkEl.classList.contains('in')) {
                 blinkEl.classList.remove('in')
