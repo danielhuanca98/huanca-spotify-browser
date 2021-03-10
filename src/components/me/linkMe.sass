@@ -1,0 +1,57 @@
+@use '../../_sass-lib' as colors
+p
+    display: inline
+a 
+    text-decoration: none
+.me-container
+    display: flex
+    flex-direction: row
+    font-size: 1.5vw
+    cursor: pointer
+    color: #adadad
+    align-items: center
+    justify-content: right
+
+    &:hover
+        color: #ffffff
+        .hid
+            width: 15vw
+    .me-dev
+
+    .hid
+        width: 0
+        overflow: hidden
+        transition: all 400ms ease-in-out
+        white-space: nowrap
+        text-overflow: fade
+        
+        .me-about        
+            
+        .me-project
+            color: colors.$verde
+            
+        #blink
+            color: colors.$verde
+            &.in
+                display: none
+            &.out
+                display: inline
+        
+    
+@media screen and ( max-width: 800px )
+
+    .me-container
+        font-size: 2vw
+        &:hover
+        .hid
+            width: 25vw
+
+@media screen and ( max-width: 400px )
+
+    .me-container
+        font-size: 3vw
+
+        &:hover
+        .hid
+            width: 30vw
+    

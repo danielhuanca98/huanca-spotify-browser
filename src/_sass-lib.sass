@@ -1,0 +1,27 @@
+$black: #000
+$verde: #1db954
+
+@mixin scroll($scroll-width)    
+    &::-webkit-scrollbar 
+        width: $scroll-width        
+                
+    &::-webkit-scrollbar-track 
+        background: #4e4e4e     
+                
+            
+    &::-webkit-scrollbar-thumb 
+        background-color: $verde  
+        border-radius: 10px    
+        border: none
+
+@mixin rotate($rotation)
+    -webkit-transform:rotate($rotation)
+    -moz-transform: rotate($rotation)
+    -ms-transform: rotate($rotation)
+    -o-transform: rotate($rotation)
+    transform: rotate($rotation)
+
+@mixin shadow()
+    -webkit-box-shadow: 0px 0px 29px 6px  #414141bf
+    -moz-box-shadow: 0px 0px 29px 6px  #414141bf
+    box-shadow: 0px 0px 29px 6px  #414141bf

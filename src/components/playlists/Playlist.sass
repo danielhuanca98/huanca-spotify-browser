@@ -1,0 +1,59 @@
+@use '../../_sass-lib' as sass
+    
+.playlists-container 
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+    grid-auto-flow: dense
+    position: relative    
+    margin: auto
+    margin-top: 2vh
+    overflow-y: scroll
+    @include sass.scroll(0.1em)    
+        
+
+    .fade
+        position: fixed
+        bottom: 0
+        width: 70%
+        height: 40%
+        z-index: 3
+        pointer-events: none
+        background: rgb(25,20,20)
+        background: linear-gradient(0deg, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%)
+    .playlist-item
+        display: flex
+        justify-content: flex-start
+        align-items: left
+        flex-direction: column
+        text-decoration: none
+        margin-top: 5vh
+        margin-right: 5vw
+        margin-bottom: 10vh
+
+        &:hover
+            .playlist-name
+                color: sass.$verde
+            .playlist-text
+                color: sass.$verde
+
+        .playlist-img
+            width: 20vw
+        .playlist-name
+            font-weight: normal
+            font-size: 1.5em
+            transition: all 200ms ease-in-out 
+            color: white
+            margin-top: 1vh
+        .playlist-text
+            color: white
+            font-weight: 200
+            transition: all 200ms ease-in-out
+            max-width: 20vw
+            margin-top: 1vh
+
+.navigation-container
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+
+        

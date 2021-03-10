@@ -1,0 +1,18 @@
+@use '../../_sass-lib' as colors
+            
+
+.header
+    display: flex
+    flex-direction: row
+    margin-top: 5vh
+    justify-content: space-between
+    .main-logo 
+        max-width: 20vw
+    
+
+@media screen and ( max-width: 900px )
+
+    .header
+        .main-logo
+            max-width: 50vw
+            height: min-content

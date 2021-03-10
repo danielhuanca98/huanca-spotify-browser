@@ -1,0 +1,21 @@
+@use './_sass-lib' as colors
+
+.App 
+    display: flex
+    font-size: large
+    color: white
+    background-color: colors.$black
+    justify-content: center
+    box-sizing: border-box
+
+    .content
+        display: flex
+        width: 70vw
+        flex-direction: column
+        height: 100vh
+
+@media screen and ( max-width: 1300px )
+
+    .App
+        .content
+            width: 90vw
