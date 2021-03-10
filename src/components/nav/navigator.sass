@@ -1,4 +1,4 @@
-@use '../../_sass-lib' as sass
+@import '../../_sass-lib' 
     
 .navigator-container
     display: flex
@@ -12,13 +12,13 @@
         align-items: center
 
         &:hover
-            @include sass.shadow()             
+            @include shadow()             
         
         .navigator-icon
             width: 40px
             height: 40px
             &.rotate 
-                @include sass.rotate($rotation: 180deg)
+                @include rotate($rotation: 180deg)
 
 @media screen and ( max-width: 400px )
 

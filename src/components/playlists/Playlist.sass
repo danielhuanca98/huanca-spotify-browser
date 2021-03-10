@@ -1,4 +1,4 @@
-@use '../../_sass-lib' as sass
+@import '../../_sass-lib'
     
 .playlists-container 
     display: grid
@@ -7,21 +7,10 @@
     position: relative    
     margin: auto
     margin-top: 2vh
-    overflow-y: scroll
+    overflow-y: scroll 
 
-    &::-webkit-scrollbar 
-        width: 0.1em        
-                
-    &::-webkit-scrollbar-track 
-        background: #4e4e4e     
-                
-            
-    &::-webkit-scrollbar-thumb 
-        background-color: sass.$verde  
-        border-radius: 10px    
-        border: none      
-        
-
+    @include scroll($scroll-width: 0.1em)     
+          
     .fade
         position: fixed
         bottom: 0
