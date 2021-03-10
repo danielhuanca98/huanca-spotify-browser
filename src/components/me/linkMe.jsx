@@ -21,7 +21,7 @@ export default function LinkMe() {
 
 
     return (
-            <a className="me-container" rel="noreferrer" target="_blank" href='http://google.com'>
+            <a className="me-container" rel="noreferrer" target="_blank" href='https://github.com/danielhuanca98/huanca-spotify-browser'>
                 <p className="me-dev">/dev</p>
                 <div className="hid">
                     <p className="me-about">/About this </p>
