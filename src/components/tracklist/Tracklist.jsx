@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { tracklist } from "../../api/request";
 import { millisToMinutesAndSeconds as mil, parseDate } from "./utils";
 import Play from "./play";
@@ -6,6 +6,7 @@ import ToSpotfy from "./toSpotify";
 import Title from "../header/title";
 import Navigator from "../nav/navigator";
 import Spinners from '../spinner/Spinner'
+import { TokenContext } from '../../TokenProvider'
 import "./tracklist.sass";
 
 export default function Tracklist(props) {
@@ -13,10 +14,11 @@ export default function Tracklist(props) {
     const [info, setInfo] = useState({});
     const [name, setName] = useState("");
     const [isLoading, setIsLoading] = useState(true);
+    const token = useContext(TokenContext)
 
     useEffect(() => {
         if (props.match === undefined) return;
-        tracklist(props.match.params.id, props.token).then((res) => {
+        tracklist(props.match.params.id, token).then((res) => {
             setTrackArray(res.data.tracks.items);
             setInfo({
                 external: res.data.external_urls.spotify,
@@ -29,7 +31,7 @@ export default function Tracklist(props) {
             setName(res.data.name)
             setIsLoading(false)
         });
-    }, [props]);
+    }, [props, token]);
 
     return (
         <>

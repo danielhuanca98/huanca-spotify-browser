@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { playLists } from '../../api/request'
 import Title from '../header/title'
 import Navigator from '../nav/navigator'
 import Spinner from '../spinner/Spinner'
+import { TokenContext } from '../../TokenProvider'
 import './Playlist.sass'
 
 export default function Playlist(props) {
@@ -11,6 +12,7 @@ export default function Playlist(props) {
     const [playlists, setPlaylists] = useState([])
     const [title, setTitle] = useState('')
     const [isLoading, setIsLoading] = useState(true)
+    const token = useContext(TokenContext)
 
     const location = useLocation()   
 
@@ -22,9 +24,9 @@ export default function Playlist(props) {
     
     useEffect(() => {
         if (props.match === undefined) return
-        getPlaylists(props.match.params.id, props.token)
+        getPlaylists(props.match.params.id, token)
         setTitle(location.state)
-    }, [props.match, props.token, location])
+    }, [props.match, token, location])
 
     return (
         <>

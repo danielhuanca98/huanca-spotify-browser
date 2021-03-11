@@ -1,18 +1,34 @@
-import React from 'react'
+import React,  { useContext, useEffect, useState } from 'react'
 import './categories.sass'
+import { categories } from "../../api/request";
 import { Link } from 'react-router-dom'
 import Title from '../header/title'
 import Spinner from '../spinner/Spinner'
+import { TokenContext } from '../../TokenProvider'
 
 
-function Categories(props) {    
+function Categories() {
+    
+    const [categoriesArray, setCategoriesArray] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
+
+    const token = useContext(TokenContext);
+    console.log(token)
+    
+    useEffect(() => {
+        if (token === "") return
+        categories(token).then((res) => {
+            setCategoriesArray(res.data.categories.items)
+            setIsLoading(false)
+        })
+    }, [token])
 
     return (
         <>
             <Title title="Principais categorias"/>
             <div className="categories-list">
-                {props.isLoading && <Spinner />}
-                {props.array.length > 0 && props.array.map(categorie => {
+                {isLoading && <Spinner />}
+                {categoriesArray.length > 0 && categoriesArray.map(categorie => {
                     return (
                         <Link 
                             to={{
