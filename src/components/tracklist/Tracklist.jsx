@@ -30,7 +30,7 @@ export default function Tracklist(props) {
             });
             setName(res.data.name)
             setIsLoading(false)
-        });
+        }).catch(err => console.log(err))
     }, [props, token]);
 
     return (
@@ -97,9 +97,6 @@ export default function Tracklist(props) {
                                                         track.track.artists[0]
                                                             .name
                                                     }
-                                                </div>
-                                                <div className="track-added">
-                                                    {parseDate(track.added_at)}
                                                 </div>
                                                 <div className="track-duration">
                                                     {mil(

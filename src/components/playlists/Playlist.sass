@@ -1,33 +1,34 @@
 @import '../../_sass-lib'
     
 .playlists-container 
-    display: grid
-    grid-template-columns: 1fr 1fr 1fr
-    grid-auto-flow: dense
-    position: relative    
+    display: flex
+    flex-wrap: wrap   
     margin: auto
+    justify-content: center
     margin-top: 2vh
     overflow-y: scroll 
 
     @include scroll($scroll-width: 0.1em)     
           
     .fade
-        position: fixed
+        position: absolute
         bottom: 0
-        width: 70%
-        height: 40%
+        left: 0
+        right: 0
+        top: 80%
         z-index: 3
         pointer-events: none
         background: rgb(25,20,20)
         background: linear-gradient(0deg, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%)
     .playlist-item
         display: flex
+        width: 20rem
         justify-content: flex-start
         align-items: left
         flex-direction: column
         text-decoration: none
-        margin-top: 5vh
-        margin-right: 5vw
+        margin-top: 1vh
+        margin-right: 1vw
         margin-bottom: 10vh
 
         &:hover
@@ -37,7 +38,7 @@
                 color: $verde
 
         .playlist-img
-            width: 20vw
+            width: 100%
         .playlist-name
             font-weight: normal
             font-size: 1.5em
@@ -48,7 +49,6 @@
             color: white
             font-weight: 200
             transition: all 200ms ease-in-out
-            max-width: 20vw
             margin-top: 1vh
 
 .navigation-container

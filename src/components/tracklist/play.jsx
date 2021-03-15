@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { track } from '../../api/request'
+import { TokenContext } from '../../TokenProvider'
 import playGray from '../../images/play.svg'
 import playGreen from '../../images/play2.svg'
 import pause from '../../images/pause.svg'
@@ -9,6 +10,7 @@ export default function Play(props) {
 
     const [audio, setAudio] = useState('')
     const [isPlaying, setIsPlaying] = useState(false)
+    const token = useContext(TokenContext)
 
     let icon = playGray
 
@@ -41,14 +43,14 @@ export default function Play(props) {
     }
 
     useEffect(() => {
-        track(props.id, props.token).then(res => {
+        track(props.id, token).then(res => {
 
             if (res.data.preview_url === null) return
             let audio = new Audio(res.data.preview_url)
             audio.volume = 0 
             setAudio(audio)
         })
-    }, [props])
+    }, [props, token])
 
     return (
         <div className="play" onClick={() => toggle()}>
