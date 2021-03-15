@@ -13,7 +13,6 @@ function Categories() {
     const [isLoading, setIsLoading] = useState(true)
 
     const token = useContext(TokenContext);
-    console.log(token)
     
     useEffect(() => {
         if (token === "") return
